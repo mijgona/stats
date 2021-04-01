@@ -1,5 +1,5 @@
-module github.com/mijgona/stats
+module github.com/mijgona/stats/v2
 
 go 1.16
 
-require github.com/mijgona/bank v0.0.0-20210401040451-a0e40b80710e // indirect
+require github.com/mijgona/bank/v2 v2.0.0
