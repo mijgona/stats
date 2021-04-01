@@ -1,14 +1,16 @@
 package stats
 
 import (
-	"github.com/mijgona/bank/pkg/types"
+	"github.com/mijgona/bank/v2/pkg/types"
 )
 
 //Avg рассчитывает среднюю сумму платежа
 func Avg(payments []types.Payment) types.Money  {
 	sum:=types.Money(0)
 	for _, payment := range payments {
-		sum+=payment.Amount
+		if payment.Status!=types.StatusFail{		
+			sum+=payment.Amount
+		}
 	}
 	return sum/types.Money(len(payments))
 }
@@ -18,7 +20,9 @@ func Avg(payments []types.Payment) types.Money  {
 	sum:=types.Money(0) 
 	for _, payment := range payments {
 		 if payment.Category==catergory{
-			sum+=payment.Amount
+			if payment.Status!=types.StatusFail{
+				sum+=payment.Amount
+			}
 		 }
 	 }
 	 return sum
