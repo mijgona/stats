@@ -7,12 +7,14 @@ import (
 //Avg рассчитывает среднюю сумму платежа
 func Avg(payments []types.Payment) types.Money  {
 	sum:=types.Money(0)
+	p:=0
 	for _, payment := range payments {
 		if payment.Status!=types.StatusFail{		
 			sum+=payment.Amount
+			p++
 		}
 	}
-	return sum/types.Money(len(payments))
+	return sum/types.Money(p)
 }
 
 //TotalInCategory находит сумму покупок в определенной категории

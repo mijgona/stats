@@ -28,7 +28,7 @@ func ExampleAvg_positive() {
 		},
 	}))
 	//Output:
-	//3666
+	//5500
 }
 
 func ExampleTotalInCategory_positive() {
