@@ -50,3 +50,18 @@ func Avg(payments []types.Payment) types.Money  {
 
 	 return categories
  }
+
+ func CategoriesAvg(payments []types.Payment) map[types.Category]types.Money  {
+	 categories:= map[types.Category]types.Money{}
+	 paymentsInCategory:=map[types.Category]int{}
+	for _, payment := range payments {		
+		categories[payment.Category]+=payment.Amount
+		paymentsInCategory[payment.Category]++
+	}
+
+	for key, category := range categories {
+		categories[key]=category/types.Money(paymentsInCategory[key])
+	}
+
+	return categories
+ }
