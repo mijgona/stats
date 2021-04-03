@@ -29,3 +29,14 @@ func Avg(payments []types.Payment) types.Money  {
 	 }
 	 return sum
  }
+
+ //FilteByCategory возвращает платежи в указанной категории
+ func FilterByCategory(payments []types.Payment, catergory types.Category) []types.Payment  {
+	var filtered []types.Payment
+	for _, payment := range payments {
+		if payment.Category==catergory{
+			filtered=append(filtered, payment)
+		}		
+	}
+	return filtered	 
+ }
